@@ -1,0 +1,13 @@
+<!-- takes the layout template -->
+{% extends "layout.html" %}
+<!-- Page Heading -->
+{% block heading1 %}
+  <h1>Weather Music App</h1>
+{% endblock heading1%}
+
+{% block container_box %}
+  {% for item in playlist.tracks %}
+    {{ item.title }}: {{ item.url }}<br>
+  {% endfor %}
+  <a href="/spotify_login">Click here to log in to Spotify!</a>
+{% endblock container_box %}

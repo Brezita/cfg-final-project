@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+{% block heading1 %}
+  <h1>Create Account</h1>
+{% endblock heading1 %}
+{% block container_box %}
+<div class="row content-box">
+  <div class="content-message-box">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{message}}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith%}
+  </div>
+  <div class="content-form-section">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+        <div class="row mt-4">
+          <div class="col">
+            {{ form.first_name.label(class="form-label") }}
+            {% if form.first_name.errors %}
+              {{ form.first_name(class="form-control is-invalid", placeholder="Jane") }}
+              <div class="invalid-feedback">
+                {% for error in form.first_name.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.first_name(class="form-control", placeholder="Jane") }}
+            {% endif %}
+          </div>
+          <div class="col">
+            {{ form.last_name.label(class="form-label") }}
+            {% if form.last_name.errors %}
+              {{ form.last_name(class="form-control is-invalid", placeholder="Doe") }}
+              <div class="invalid-feedback">
+                {% for error in form.last_name.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.last_name(class="form-control", placeholder="Doe") }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col">
+            {{ form.email_address.label(class="form-label") }}
+            {% if form.email_address.errors %}
+              {{ form.email_address(class="form-control is-invalid", placeholder="jane.doe@doe.com") }}  
+              <div class="invalid-feedback">
+                {% for error in form.email_address.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.email_address(class="form-control", placeholder="jane.doe@doe.com") }}  
+            {% endif%}
+          </div>
+          <div class="col">
+            {{ form.username.label(class="form-label") }}
+            {% if form.username.errors %}
+              {{ form.username(class="form-control is-invalid", placeholder="username") }}
+                <div class="invalid-feedback">
+                  {% for error in form.username.errors %}   
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+            {% else %}
+              {{ form.username(class="form-control", placeholder='username') }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col">
+            {{ form.password.label(class="form-label") }}
+            {% if form.password.errors %}
+              {{ form.password(class="form-control is-invalid", placeholder="Enter a password") }}
+                <div class="invalid-feedback">
+                  {% for error in form.password.errors %}   
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+            {% else %}
+              {{ form.password(class="form-control", placeholder='Enter a password') }}
+            {% endif %}
+          </div>
+          <div class="col">
+            {{ form.confirm_password.label(class="form-label") }}
+            {% if form.confirm_password.errors %}
+              {{ form.confirm_password(class="form-control is-invalid", placeholder="Confirm password") }}
+                <div class="invalid-feedback">
+                  {% for error in form.confirm_password.errors %}   
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+            {% else %}
+              {{ form.confirm_password(class="form-control", placeholder='Confirm password') }}
+            {% endif %}
+          </div>
+        </div>
+      <div class="form-group m-5">
+      {{ form.submit(class="btn btn-outline-info btn-lg") }}
+      </div>
+    </form>
+    <div class="border-top mt-4 pt-3">
+      <small class="text-muted">
+        Already have an account? <a class="ml-2 sign-link" href="{{ url_for('auth.login') }}"> Sign In</a>
+      </small>
+    </div>
+  </div>
+</div>
+{% endblock container_box %}
