@@ -9,6 +9,12 @@ class Playlist:
             self.duration = duration
             self.url = url
 
+    class PlaylistLocationData:
+        def __init__(self, location, country, weather):
+            self.location = location
+            self.country = country
+            self.weather = weather
+
         def getDuration(self):
             return self.duration
 
@@ -47,10 +53,3 @@ class Playlist:
 
     def emptyPlaylist(self):
         self.__del__()
-
-    class Location:
-        def __init__(self, location, country, weather):
-            self.location = location
-            self.country = country
-            self.weather = weather
-        
