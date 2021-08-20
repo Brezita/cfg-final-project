@@ -49,7 +49,7 @@ Before running this code, you will need to have installed several Python package
 
 Additionally, you will need to create an api_utils.py file, which should live in the 'website' directory. This should contain the API keys needed to run the app - this will include the getgeoapi.com API, the openweathermap.com API, and Spotify's client ID and client secret. CFG instructors: please message one of the project team to be sent a full set of keys.
 
-## Usage
+## Running the App
 In order to run the code, you will need to navigate into the same directory as the app.py file, then execute one of the following commands in your terminal. This will launch the application, give the IP address at which the application is running, and allow you to open the application in your browser.
 
 Using Bash:
@@ -71,6 +71,13 @@ set FLASK_APP=hello
 flask run
 ```
 
+## Using the App
+On opening the website, the app will automatically detect your location and provide you with a suggested playlist of songs relating to the current weather. 
+
+You can also create an account with the app, which may grant additional features in the future - for example, the ability to save multiple locations, or to opt in to a "daily digest" summary of the weather in your area with a new playlist for you.
+
+We are also hoping to add the ability for Spotify users to assign their own playlists to certain weather conditions. At present, Spotify users are able to authorise their accounts with our app; however, this does not add any functionality.
+
 ## Contributers
 ASim-Null - Alexandra Simon-Lewis\
 Brezita - Heather Cartwright\
@@ -78,7 +85,4 @@ jmdoherty1 - Johanna Doherty\
 heyjulesb - Jules Luu\
 kmh256 - Kara Howard
 
-What we want, is to understand what each file in your repo is, how to run your code (even the link access is sort of running), what vanity to, how to interact with it. Things like that. I have not seen your code, what is all I need to understand it.
-All this in nice, structured way, maybe some images not just text to show what's it about. Use markdown.
-Hope this helps to at least get started with it.
-Also, I know you do not need installing, we have not talked about that in class, but am I not supposed to interact/launch the website by running your main file?
+![A gif of a cat bopping to music](https://media3.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif?cid=ecf05e47h2g04xu99hqwaqvxsxec6y6it2dk03gviiecs2si&rid=giphy.gif&ct=g)
