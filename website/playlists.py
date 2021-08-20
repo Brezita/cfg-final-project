@@ -20,29 +20,37 @@ class Playlist:
     
     def addTrack(self, newtrack):
         self.tracks.append(newtrack)
-        self.total_tracks += 1        
+        self.total_tracks += 1
 
-    def nextTrack(self):
-        if self.current_track < self.total_tracks:
-            self.current_track += 1
-        elif self.current_track == self.total_tracks:
-            self.current_track = 0
-        else:
-            print("No tracks found.")
-
-    def previousTrack(self):
-        if self.current_track > 0:
-            self.current_track -= 1
-        elif self.current_track == 0:
-            self.current_track = self.total_tracks
-        else:
-            print("No tracks found.")
+    def changeTrack(self, direction):
+        if direction == "next":
+            if self.current_track < self.total_tracks:
+                self.current_track += 1
+            elif self.current_track == self.total_tracks:
+                self.current_track = 0
+            else:
+                print("No tracks found.")
+        elif direction == "previous":
+            if self.current_track > 0:
+                self.current_track -= 1
+            elif self.current_track == 0:
+                self.current_track = self.total_tracks
+            else:
+                print("No tracks found.")
+        return self.tracks[self.current_track]
 
     def shuffleTracks(self):
-        random.shuffle(self.tracks)
+        self.tracks = random.shuffle(self.tracks)
 
     def removeForever(self):
         pass
 
     def emptyPlaylist(self):
         self.__del__()
+
+    class Location:
+        def __init__(self, location, country, weather):
+            self.location = location
+            self.country = country
+            self.weather = weather
+        

@@ -8,21 +8,23 @@ from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
 
 from .playlists import Playlist
 
+GEO_API = {
+    "url": "https://api.getgeoapi.com/v2/ip/check",
+    "querystring": {"format":"json"},
+    "headers": {'x-rapidapi-host': 'ip-geo-location.p.rapidapi.com'}
+}
+
+WEATHER_API = {
+    "url": "https://api.openweathermap.org/data/2.5/weather"
+}
 
 
 def get_user_location():
-    # Geolocation API - gets user location through IP address. 
-    geo_url = "https://api.getgeoapi.com/v2/ip/check?api_key={}".format(geo_api_key)
+    ''' Geolocation API - gets user location through IP address. '''
+    response = get_api_response(GEO_API["url"] + "?api_key={}".format(geo_api_key), headers=GEO_API["headers"], querystring=GEO_API["querystring"])
     
-    querystring = {"format":"json"}
-
-    headers = {'x-rapidapi-host': 'ip-geo-location.p.rapidapi.com'}
-
     try:
-        response = requests.request("GET", geo_url, headers=headers, params=querystring)
-        print(response)
         location_data = json.loads(response.text)
-        print(location_data['location']['latitude'], location_data['location']['longitude'])
         return (location_data['location']['latitude'], location_data['location']['longitude'])
     except:
         print("Could not access geolocation API.")
@@ -30,18 +32,32 @@ def get_user_location():
 
 # This will eventually need to be rewritten to accommodate when location is entered as a place rather than lat/lon
 def get_user_weather(location):
-
+    ''' Open Weather API - gets user weather using location. '''
     # location[0] is latitute; location[1] is longitude
-    weather_url = "https://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid={}&units=metric".format(location[0], location[1], weather_api_key)
+    response = get_api_response(WEATHER_API['url'] + "?lat={}&lon={}&appid={}&units=metric".format(location[0], location[1], weather_api_key))
 
     try:
-        response = requests.get(weather_url)
-        print(response)
         data = json.loads(response.text)
+        
+        # stores location
+        Playlist.Location.location = data['name']
+        Playlist.Location.country = data['sys']['country']
+        
+        # stores weather description
+        Playlist.Location.weather = data['weather'][0]['description']
+        
         return(data['weather'][0]['main'])
     except:
         print("Could not access weather API.")
         return "API error: weather API was not found."
+
+def get_api_response(url, **kwargs):
+    ''' Mostly does the job of requests.get, but with added error handling. '''
+    response = requests.get(url, kwargs)
+    if response.ok:
+        return response
+    else:
+        return None
 
     # The following code has been taken out for the time being but left in incase it needs to be added back
             # # Found this difficult - until I added the zero. Hadn't noticed there was more than one item in 'main'. 

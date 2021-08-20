@@ -8,7 +8,7 @@ from .models import Note
 from . import db
 import json
 from .api_helpers import get_user_location, get_user_weather, get_spotify_user_auth, call_spotify, get_user_playlists, get_spotify_token
-from .playlists import Playlist, Track
+from .playlists import Playlist
 
 # defining Blueprint
 views = Blueprint('views', __name__)
