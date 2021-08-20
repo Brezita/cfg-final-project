@@ -4,6 +4,7 @@
 {% endblock heading1 %}
 {% block container_box %}
 <div class="row content-box">
+  <!-- this section handles error messages -->
   <div class="content-message-box">
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
@@ -15,6 +16,7 @@
       {% endif %}
     {% endwith%}
   </div>
+  <!-- Registration form section -->
   <div class="content-form-section">
     <form method="POST" action="">
       {{ form.hidden_tag() }}
