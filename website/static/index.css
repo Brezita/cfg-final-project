@@ -16,7 +16,7 @@ body {
 }
 
 #background-wrap {
-    bottom: 0;
+  bottom: 0;
 	left: 0;
 	padding-top: 100px;
 	position: fixed;
@@ -132,7 +132,7 @@ body {
 }
 
 .cloud:after, .cloud:before {
-    background: #fff;
+  background: #fff;
 	content: '';
 	position: absolute;
 	z-indeX: -1;
