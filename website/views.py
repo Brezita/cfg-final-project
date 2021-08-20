@@ -56,7 +56,6 @@ def spotify_callback():
   get_spotify_token(code)
   return redirect("/")
 
-
 @views.route("/user_playlists")
 def user_playlists():
 	return get_user_playlists()
