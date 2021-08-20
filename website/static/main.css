@@ -5,7 +5,6 @@ html {
 
 body {
   background: #83C0F9;
-  color: #333333;
   margin-top: 50px;
   margin-bottom: 60px;
 }
@@ -23,7 +22,7 @@ h2 {
 }
 
 p {
-  color: #333333;
+  color: #000000;
   font-family: 'Raleway';
   font-size: 1.5rem;
 }
@@ -89,8 +88,10 @@ p {
   color: #EDD55A;
 }
 
-.play a {
-  color: pink;
+.song-link:link, .song-link:visited {
+  color: #EDD55A;
+  font-size: 1.6rem;
+  font-family: 'Raleway';
 }
 .content-box {
   justify-content: center;
@@ -115,7 +116,7 @@ p {
   border-radius: 10px;
   margin-bottom: 20px;
   font-family: 'Playfair Display';
-  color: #276DBF;
+  color: #5e5d5d;
   font-size: 1.5em;
   width: 800;
 }
@@ -128,7 +129,7 @@ p {
   padding-left: 5px;
 }
 
-.sign-link:link {
+.sign-link:link , .sign-link:visited{
   text-decoration: none;
   color: #276DBF;
 }
