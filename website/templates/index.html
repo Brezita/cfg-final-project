@@ -26,7 +26,14 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm" style= "font-family: Playfair Display;">
+      <h2>Your Location:</h2> <br>
+      <b><p style="font-size: medium; color:#EDD55A;">{{ playlist.Location.location}}, {{ playlist.Location.country}}</p></b>
+      <!-- <b><p style="font-size: medium; color:#EDD55A;">{{ playlist.Location.country}}</p></b> -->
+      <br>
+      <h2>Weather in your area:</h2> <br>
+      <b><p style="font-size: medium; color:#EDD55A;">{{ playlist.Location.weather }}</p></b>
+      <br>
     </div>
     <div class="col-sm" style= "font-family: Playfair Display;">
       <h2>Your Playlist:</h2> <br>

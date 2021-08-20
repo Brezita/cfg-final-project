@@ -38,6 +38,14 @@ def get_user_weather(location):
 
     try:
         data = json.loads(response.text)
+        
+        # stores location
+        Playlist.Location.location = data['name']
+        Playlist.Location.country = data['sys']['country']
+        
+        # stores weather description
+        Playlist.Location.weather = data['weather'][0]['description']
+        
         return(data['weather'][0]['main'])
     except:
         print("Could not access weather API.")
