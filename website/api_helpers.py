@@ -8,34 +8,36 @@ from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
 
 from .playlists import Playlist
 
+
+
 def get_user_location():
-    print("Getting user location")
     # Geolocation API - gets user location through IP address. 
-    url_2 = "https://api.getgeoapi.com/v2/ip/check?api_key={}".format(geo_api_key)
+    geo_url = "https://api.getgeoapi.com/v2/ip/check?api_key={}".format(geo_api_key)
     
     querystring = {"format":"json"}
 
     headers = {'x-rapidapi-host': 'ip-geo-location.p.rapidapi.com'}
 
     try:
-        response = requests.request("GET", url_2, headers=headers, params=querystring)
+        response = requests.request("GET", geo_url, headers=headers, params=querystring)
         print(response)
         location_data = json.loads(response.text)
+        print(location_data['location']['latitude'], location_data['location']['longitude'])
         return (location_data['location']['latitude'], location_data['location']['longitude'])
     except:
         print("Could not access geolocation API.")
         return "API error: geolocation API was not found."
 
-# This needs to be rewritten to accommodate when location is entered as a place rather than lat/lon
+# This will eventually need to be rewritten to accommodate when location is entered as a place rather than lat/lon
 def get_user_weather(location):
+
     # location[0] is latitute; location[1] is longitude
-    url = "https://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid={}&units=metric".format(location[0], location[1], weather_api_key)
+    weather_url = "https://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid={}&units=metric".format(location[0], location[1], weather_api_key)
 
     try:
-        response = requests.get(url)
+        response = requests.get(weather_url)
         print(response)
         data = json.loads(response.text)
-        print(data)
         return(data['weather'][0]['main'])
     except:
         print("Could not access weather API.")
@@ -69,6 +71,7 @@ def get_spotify_user_auth(username):
                             username=username)
         session["spotify_user_auth"] = sp
         url = sp.get_authorize_url()
+        print(f"URL: {url}")
         return url
     except:
         print("Could not get authorisation.")
@@ -80,7 +83,9 @@ def get_spotify_token(code):
     try:
         auth.get_access_token(code=code)
     except:
+        print("Could not get token.")
         return 1
+    print("Got token, returning.")
     return 0
 
 # Split this out into two playlists - adding code and getting playlists should be separate

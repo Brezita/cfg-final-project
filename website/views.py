@@ -39,8 +39,7 @@ def spotify_login():
 def spotify_callback():
   code = request.args.get("code")
 
-  result = get_spotify_token(code)
-  print(result)
+  get_spotify_token(code)
   return redirect("/")
 
 @views.route("/user_playlists")
