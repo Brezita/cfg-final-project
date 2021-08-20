@@ -14,6 +14,7 @@ def create_app():
   app = Flask(__name__) 
   # secures the cookies and session data related to the website
   app.config['SECRET_KEY'] = '1533e2ab57a4a84099e9ba68935b9d44'
+  app.config["SESSION_TYPE"] = "filesystem"
   # links database to app
   app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
   db.init_app(app)
