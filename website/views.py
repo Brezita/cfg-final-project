@@ -3,12 +3,12 @@
 
 from flask import Blueprint, render_template, redirect, request, flash, jsonify
 from flask_login import login_required, current_user
-from flask_session import Session
+from flask import session
+
 from .models import Note
 from . import db
 import json
 from .api_helpers import get_user_location, get_user_weather, get_spotify_user_auth, call_spotify, get_user_playlists, get_spotify_token
-from .playlists import Playlist
 
 # defining Blueprint
 views = Blueprint('views', __name__)
@@ -42,7 +42,7 @@ def about():
 @views.route("/spotify_login")
 def spotify_login():
 	username = "Brezita"
-	auth_url = get_spotify_user_auth(username)
+	auth_url = get_spotify_user_auth(session, username)
 
 	if auth_url == 1:
 		return redirect("/")
@@ -53,13 +53,13 @@ def spotify_login():
 @views.route("/callback")
 def spotify_callback():
   code = request.args.get("code")
-  get_spotify_token(code)
+  get_spotify_token(session, code)
   return redirect("/")
 
 
 @views.route("/user_playlists")
 def user_playlists():
-	return get_user_playlists()
+	return get_user_playlists(session)
 
 @views.route('/delete-note', methods=['POST'])
 def delete_note():

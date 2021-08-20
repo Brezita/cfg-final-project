@@ -2,7 +2,6 @@ import requests
 import json
 import spotipy
 
-from flask import session
 from .api_utils import weather_api_key, geo_api_key, spot_client_id, spot_client_secret
 from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
 
@@ -40,11 +39,11 @@ def get_user_weather(location):
         data = json.loads(response.text)
         
         # stores location
-        Playlist.Location.location = data['name']
-        Playlist.Location.country = data['sys']['country']
+        Playlist.PlaylistLocationData.location = data['name']
+        Playlist.PlaylistLocationData.country = data['sys']['country']
         
         # stores weather description
-        Playlist.Location.weather = data['weather'][0]['description']
+        Playlist.PlaylistLocationData.weather = data['weather'][0]['description']
         
         return(data['weather'][0]['main'])
     except:
@@ -59,43 +58,24 @@ def get_api_response(url, **kwargs):
     else:
         return None
 
-    # The following code has been taken out for the time being but left in incase it needs to be added back
-            # # Found this difficult - until I added the zero. Hadn't noticed there was more than one item in 'main'. 
-            # main = data['weather'][0]['main']
-            # print(main)
-
-            # temp = data['main']['temp']
-            # print(f"Temperature is {temp} degrees celsius") #adjusted api url per documentation for metric units
-
-            # #extra precision for more potential functions
-            # extra_precision_ = data['weather'][0]['description']
-            # humidity = data['main']['humidity']
-            # wind = data['wind']['speed']
-            # timezone = data['timezone']
-            # icon = data['weather'][0]['icon']
-            # #need to download icons for use if you want. probably get the music down first before that. 
-
-
 # Authorisation flow for Spotify user
-# Need to work out how to deal with this if it fails
-def get_spotify_user_auth(username):
+def get_spotify_user_auth(mysession, username):
     try:
         sp = SpotifyOAuth(client_id=spot_client_id,
                             client_secret=spot_client_secret,
                             redirect_uri="http://127.0.0.1:5000/callback",
                             scope = 'user-library-read playlist-read-private',
                             username=username)
-        session["spotify_user_auth"] = sp
+        mysession["spotify_user_auth"] = sp
         url = sp.get_authorize_url()
-        print(f"URL: {url}")
         return url
     except:
         print("Could not get authorisation.")
         return 1
 
 # Second part of Spotify auth flow
-def get_spotify_token(code):
-    auth = session["spotify_user_auth"]
+def get_spotify_token(mysession, code):
+    auth = mysession["spotify_user_auth"]
     try:
         auth.get_access_token(code=code)
     except:
@@ -106,8 +86,8 @@ def get_spotify_token(code):
 
 # Split this out into two playlists - adding code and getting playlists should be separate
 # Return user's playlists
-def get_user_playlists():
-    sp = spotipy.Spotify(oauth_manager=session["spotify_user_auth"])
+def get_user_playlists(mysession):
+    sp = spotipy.Spotify(oauth_manager=mysession["spotify_user_auth"])
     
     playlists = sp.current_user_playlists()
     print(playlists)
