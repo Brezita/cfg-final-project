@@ -1,13 +1,47 @@
 <!-- takes the layout template -->
 {% extends "layout.html" %}
+
 <!-- Page Heading -->
 {% block heading1 %}
   <h1>Weather Music App</h1>
 {% endblock heading1%}
 
 {% block container_box %}
-  {% for item in playlist.tracks %}
-    {{ item.title }}: {{ item.url }}<br>
-  {% endfor %}
-  <a href="/spotify_login">Click here to log in to Spotify!</a>
+<div id="background-wrap">
+  <div class="x1">
+      <div class="cloud"></div>
+  </div>
+  <div class="x2">
+      <div class="cloud"></div>
+  </div>
+  <div class="x3">
+      <div class="cloud"></div>
+  </div>
+  <div class="x4">
+      <div class="cloud"></div>
+  </div>
+  <div class="x5">
+      <div class="cloud"></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm" style= "font-family: Playfair Display;">
+      <h2>Your Playlist:</h2> <br>
+      {% for item in playlist.tracks %}
+      <b><a href= {{ item.url }} style="font-size: medium; color:#EDD55A;">{{ item.title }}</a></b><br>
+      {% endfor %}
+      <br>
+      <div>
+        <a href="/spotify_login"><button class="btn btn-lg btn-outline-info" class="spot-btn">Login to Spotify</button></a> 
+      </div>
+      <br>
+    </div>
+    <div class="col-sm">
+      <iframe src="https://open.spotify.com/embed/track/{{playlist.tracks[0].spotifyid}}" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+  </div>
+</div>
 {% endblock container_box %}

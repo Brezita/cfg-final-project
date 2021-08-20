@@ -16,6 +16,12 @@ h1 {
   font-size: 5.7rem;
 }
 
+h2 {
+  color: #EDD55A;
+  font-family: 'Pacifico';
+  font-size: 3rem;
+}
+
 p {
   color: #333333;
   font-family: 'Raleway';
