@@ -1,11 +1,10 @@
 html {
   /* 1rem = 10px */
-    font-size: 62.5%;
+  font-size: 62.5%;
   }
 
 body {
   background: #83C0F9;
-  color: #333333;
   margin-top: 50px;
   margin-bottom: 60px;
 }
@@ -17,17 +16,23 @@ h1 {
 }
 
 h2 {
-  color: #EDD55A;
-  font-family: 'Pacifico';
-  font-size: 3rem;
+  color: #5e5d5d;
+  font-family: 'Playfair Display';
+  font-size: 2.0rem;
 }
 
 p {
-  color: #333333;
+  color: #000000;
   font-family: 'Raleway';
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
+/* specific p styling */
+.yellow-text {
+  color: #EDD55A;
+}
+
+/* navigation styling */
 .navbar {
   font-family: 'Playfair Display';
   font-size: 1.6rem;
@@ -46,17 +51,41 @@ p {
   font-weight: 500;
 }
 
+/* anchor tag styling */
+
+/* playlist songs styling  */
+.song-link:link, .song-link:visited {
+  color: #EDD55A;
+  font-size: 1.6rem;
+  font-family: 'Raleway';
+}
+
+/* anchor tag styling used in login and register page */
+.sign-link:link , .sign-link:visited{
+  text-decoration: none;
+  color: #276DBF;
+}
+
+.sign-link:hover {
+  text-decoration: none;
+  color: #27B6BF;
+}
+
+/* main page heading */
 .heading-box {
   justify-content: center;
   padding-top: 60px;
   text-align: center;
 }
 
+/* section area for the page  */
 .container-box {
   justify-content: center;
-  margin-top: 45px;
+  margin-top: 50px;
   text-align: center;
 }
+
+/* footer styling  */
 .footer {
   position: fixed;
   bottom: 0;
@@ -78,6 +107,27 @@ p {
   color: #276DBF;
 }
 
+/* used in the index.html  */
+.container-wrapper {
+  margin-top: 70px;
+}
+
+/* main section to wrap the content-messsage-box and content-form-section area */
+.content-box {
+  justify-content: center;
+  padding-top: 15px;
+  text-align: center;
+}
+/* box to display error/success messages on the login and registration page */
+.content-message-box{
+  padding: 10px;
+  margin-bottom: 5px;
+  font-family: 'Playfair Display';
+  font-size: 1.5em;
+  width: 600;
+}
+
+/* form section styling for the login and registration page  */
 .content-form-section {
   background: #ffffff;
   padding: 10px 20px;
@@ -85,41 +135,174 @@ p {
   border-radius: 10px;
   margin-bottom: 20px;
   font-family: 'Playfair Display';
-  color: #276DBF;
+  color: #5e5d5d;
   font-size: 1.5em;
   width: 800;
 }
 
-.content-box {
-  justify-content: center;
-  padding-top: 15px;
-  text-align: center;
-}
-.content-message-box{
-  /* background: #ffffff; */
-  padding: 10px;
-  /* border: 1px solid #dddddd;
-  border-radius: 10px; */
-  margin-bottom: 5px;
-  font-family: 'Playfair Display';
-  font-size: 1.5em;
-  width: 600;
-}
+/* form styling  */
 
+/* controls the font size for the text fields in the form  */
 .form-control {
   font-size: 1em;
 }
 
-.sign-link a {
-  text-decoration: none;
-  color: #276DBF;
-}
-
-.sign-link:hover {
-  text-decoration: none;
-  color: #27B6BF;
-}
-
 .form-check-label {
   padding-left: 5px;
+}
+
+/* Styling for the cloud animation */
+.background-wrap {
+  bottom: 0;
+	left: 0;
+	padding-top: 100px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: -1;
+}
+
+/* keyframes */
+
+@-webkit-keyframes animateCloud {
+  0% {
+    margin-left: -1000px;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+
+@-moz-keyframes animateCloud {
+  0% {
+    margin-left: -1000px;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+
+@keyframes animateCloud {
+  0% {
+    margin-left: -1000px;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+
+/* animation for the clouds */
+
+.cloud-1 {
+-webkit-animation: animateCloud 70s linear infinite;
+-moz-animation: animateCloud 70s linear infinite;
+animation: animateCloud 70s linear infinite;
+
+-webkit-transform: scale(0.50);
+-moz-transform: scale(0.50);
+transform: scale(0.50);
+}
+
+.cloud-2 {
+-webkit-animation: animateCloud 40s linear infinite;
+-moz-animation: animateCloud 40s linear infinite;
+animation: animateCloud 40s linear infinite;
+
+-webkit-transform: scale(0.3);
+-moz-transform: scale(0.3);
+transform: scale(0.3);
+}
+
+.cloud-3 {
+-webkit-animation: animateCloud 58s linear infinite;
+-moz-animation: animateCloud 58s linear infinite;
+animation: animateCloud 58s linear infinite;
+
+-webkit-transform: scale(0.5);
+-moz-transform: scale(0.5);
+transform: scale(0.5);
+}
+
+.cloud-4 {
+-webkit-animation: animateCloud 36s linear infinite;
+-moz-animation: animateCloud 36s linear infinite;
+animation: animateCloud 36s linear infinite;
+
+-webkit-transform: scale(0.35);
+-moz-transform: scale(0.35);
+transform: scale(0.35);
+}
+
+.cloud-5 {
+-webkit-animation: animateCloud 50s linear infinite;
+-moz-animation: animateCloud 50s linear infinite;
+animation: animateCloud 50s linear infinite;
+
+-webkit-transform: scale(0.45);
+-moz-transform: scale(0.45);
+transform: scale(0.45);
+}
+
+.cloud-6 {
+  -webkit-animation: animateCloud 43s linear infinite;
+  -moz-animation: animateCloud 43s linear infinite;
+  animation: animateCloud 43s linear infinite;
+  
+  -webkit-transform: scale(0.35);
+  -moz-transform: scale(0.35);
+  transform: scale(0.35);
+  }
+
+/* styling for the cloud */
+
+.cloud {
+background: #fff;
+background: -moz-linear-gradient(top,  #fff 5%, #f1f1f1 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#fff), color-stop(100%,#f1f1f1));
+background: -webkit-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+background: -o-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+background: -ms-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+background: linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1',GradientType=0 );
+
+-webkit-border-radius: 100px;
+-moz-border-radius: 100px;
+border-radius: 100px;
+
+-webkit-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+
+height: 120px;
+position: relative;
+width: 350px;
+}
+
+.cloud:after, .cloud:before {
+background: #fff;
+content: '';
+position: absolute;
+z-indeX: -1;
+}
+
+.cloud:after {
+-webkit-border-radius: 100px;
+-moz-border-radius: 100px;
+border-radius: 100px;
+
+height: 100px;
+left: 50px;
+top: -50px;
+width: 100px;
+}
+
+.cloud:before {
+-webkit-border-radius: 200px;
+-moz-border-radius: 200px;
+border-radius: 200px;
+
+width: 180px;
+height: 180px;
+right: 50px;
+top: -90px;
 }

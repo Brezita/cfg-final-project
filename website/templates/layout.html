@@ -1,11 +1,12 @@
+<!-- base layout template -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% if title %}
-    <title>Weather Music App - {{ title }}</title>
+    <title>Cloudtunes - {{ title }}</title>
   {% else %}
-    <title>Weather Music App</title>
+    <title>Cloudtunes</title>
   {% endif %}
 
   <!-- Bootstrap CSS -->
@@ -21,7 +22,6 @@
 
  <!--Misc CSS-->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
   <header class="site-header">
@@ -51,8 +51,8 @@
       {% block heading1 %}
       {% endblock heading1 %}
     </div>
-    <div class="container-box">
     <!-- section for the page -->
+    <div class="container-box">
       {% block container_box %}
       {% endblock container_box %}
     </div>
@@ -65,7 +65,7 @@
           <p class="footer-p">CFG Project</p>
         </div>
         <div class="col">
-          <p class="footer-p">&copy; Weather Music App <script>document.write(new Date().getFullYear())</script></p>
+          <p class="footer-p">&copy; Cloudtunes <script>document.write(new Date().getFullYear())</script></p>
         </div>
       
     </div>

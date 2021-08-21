@@ -4,7 +4,8 @@
 {% endblock heading1 %}
 {% block container_box %}
 <div class="row content-box">
-  <!-- <div class="content-message-box">
+   <!-- this section handles success/error messages -->
+  <div class="content-message-box">
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         {% for category, message in messages %}
@@ -14,7 +15,7 @@
         {% endfor %}
       {% endif %}
     {% endwith%}
-  </div> -->
+  </div>
   <div class="content-form-section">
     <form method="POST" action="">
       {{ form.hidden_tag() }}
@@ -32,19 +33,6 @@
             {{ form.email_address(class="form-control", placeholder="jane.doe@doe.com") }}  
           {% endif%}
         </div>
-        <!-- <div class="form-group">
-          {{ form.username.label(class="form-label") }}
-          {% if form.username.errors %}
-            {{ form.username(class="form-control is-invalid", placeholder="username") }}
-              <div class="invalid-feedback">
-                {% for error in form.username.errors %}   
-                  <span>{{ error }}</span>
-                {% endfor %}
-              </div>
-          {% else %}
-            {{ form.username(class="form-control", placeholder='username') }}
-          {% endif %}
-        </div> -->
         <div class="form-group">
           {{ form.password.label(class="form-label") }}
           {% if form.password.errors %}

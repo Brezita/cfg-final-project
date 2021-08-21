@@ -3,54 +3,33 @@
 
 <!-- Page Heading -->
 {% block heading1 %}
-  <h1>Weather Music App</h1>
+  <h1>Welcome to Cloudtunes</h1>
 {% endblock heading1%}
 
+<!-- main section for the page -->
 {% block container_box %}
-
-<!-- Index CSS -->
-<link rel="stylesheet" href="{{ url_for('static', filename='/index.css') }}">
-
-<div id="background-wrap">
-  <div class="x1">
-      <div class="cloud"></div>
-  </div>
-  <div class="x2">
-      <div class="cloud"></div>
-  </div>
-  <div class="x3">
-      <div class="cloud"></div>
-  </div>
-  <div class="x4">
-      <div class="cloud"></div>
-  </div>
-  <div class="x5">
-      <div class="cloud"></div>
-  </div>
-</div>
-<div class="container">
+<div class="container-wrapper">
   <div class="row">
-    <div class="col-sm" style= "font-family: Playfair Display;">
-      <h2>Your Location:</h2> <br>
-      <b><p style="font-size: medium; color:#EDD55A;">{{ playlist.PlaylistLocationData.location}}, {{ playlist.PlaylistLocationData.country}}</p></b>
-      <br>
-      <h2>Weather in your area:</h2> <br>
-      <b><p style="font-size: medium; color:#EDD55A;">{{ playlist.PlaylistLocationData.weather }}</p></b>
-      <br>
+    <div class="col">
+      <h2>Current Location:</h2> 
+      <br/>
+      <p class="yellow-text">{{ playlist.Location.location}}, {{ playlist.Location.country}}</p>
+      <br />
+      <h2>Current Weather:</h2> 
+      <br/>
+      <p class="yellow-text">{{ playlist.Location.weather }}</p>
     </div>
-    <div class="col-sm" style= "font-family: Playfair Display;">
-      <h2>Your Playlist:</h2> <br>
-      {% for item in playlist.tracks %}
-      <b><a href= {{ item.url }} style="font-size: medium; color:#EDD55A;">{{ item.title }}</a></b><br>
-      {% endfor %}
-      <br>
-      <div>
-        <a href="/spotify_login"><button class="btn btn-lg btn-outline-info" class="spot-btn">Login to Spotify</button></a> 
-      </div>
-      <br>
+  </div>
+  <div class="row pt-5">
+    <div class="col">
+      <p>Bored of listening to the same songs over and over again?</p>
+      <p>Why don't you let us curate a playlist for you today? </p>
+      <p class="yellow-text">Click on the below button and find out what music you can be listening to today!</p>
     </div>
-    <div class="col-sm">
-      <iframe src="https://open.spotify.com/embed/track/{{playlist.tracks[0].spotifyid}}" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+  <div class="row pt-4">
+    <div class="col">
+      <a href="/spotify_login"><button class="btn btn-lg btn-info">Login to Spotify</button></a>
     </div>
   </div>
 </div>
