@@ -4,7 +4,8 @@
 {% endblock heading1 %}
 {% block container_box %}
 <div class="row content-box">
-  <!-- <div class="content-message-box">
+   <!-- this section handles success/error messages -->
+  <div class="content-message-box">
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         {% for category, message in messages %}
@@ -14,7 +15,7 @@
         {% endfor %}
       {% endif %}
     {% endwith%}
-  </div> -->
+  </div>
   <div class="content-form-section">
     <form method="POST" action="">
       {{ form.hidden_tag() }}

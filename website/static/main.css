@@ -27,10 +27,12 @@ p {
   font-size: 1.6rem;
 }
 
+/* specific p styling */
 .yellow-text {
   color: #EDD55A;
 }
 
+/* navigation styling */
 .navbar {
   font-family: 'Playfair Display';
   font-size: 1.6rem;
@@ -49,18 +51,41 @@ p {
   font-weight: 500;
 }
 
+/* anchor tag styling */
+
+/* playlist songs styling  */
+.song-link:link, .song-link:visited {
+  color: #EDD55A;
+  font-size: 1.6rem;
+  font-family: 'Raleway';
+}
+
+/* anchor tag styling used in login and register page */
+.sign-link:link , .sign-link:visited{
+  text-decoration: none;
+  color: #276DBF;
+}
+
+.sign-link:hover {
+  text-decoration: none;
+  color: #27B6BF;
+}
+
+/* main page heading */
 .heading-box {
   justify-content: center;
   padding-top: 60px;
   text-align: center;
 }
 
+/* section area for the page  */
 .container-box {
   justify-content: center;
   margin-top: 50px;
   text-align: center;
 }
 
+/* footer styling  */
 .footer {
   position: fixed;
   bottom: 0;
@@ -82,33 +107,27 @@ p {
   color: #276DBF;
 }
 
-/* index.html specific styling */
-
+/* used in the index.html  */
 .container-wrapper {
   margin-top: 70px;
 }
 
-.song-link:link, .song-link:visited {
-  color: #EDD55A;
-  font-size: 1.6rem;
-  font-family: 'Raleway';
-}
+/* main section to wrap the content-messsage-box and content-form-section area */
 .content-box {
   justify-content: center;
   padding-top: 15px;
   text-align: center;
 }
+/* box to display error/success messages on the login and registration page */
 .content-message-box{
-  /* background: #ffffff; */
   padding: 10px;
-  /* border: 1px solid #dddddd;
-  border-radius: 10px; */
   margin-bottom: 5px;
   font-family: 'Playfair Display';
   font-size: 1.5em;
   width: 600;
 }
 
+/* form section styling for the login and registration page  */
 .content-form-section {
   background: #ffffff;
   padding: 10px 20px;
@@ -121,6 +140,9 @@ p {
   width: 800;
 }
 
+/* form styling  */
+
+/* controls the font size for the text fields in the form  */
 .form-control {
   font-size: 1em;
 }
@@ -129,16 +151,7 @@ p {
   padding-left: 5px;
 }
 
-.sign-link:link , .sign-link:visited{
-  text-decoration: none;
-  color: #276DBF;
-}
-
-.sign-link:hover {
-  text-decoration: none;
-  color: #27B6BF;
-}
-
+/* Styling for the cloud animation */
 .background-wrap {
   bottom: 0;
 	left: 0;
@@ -149,7 +162,7 @@ p {
 	z-index: -1;
 }
 
-/* KEYFRAMES */
+/* keyframes */
 
 @-webkit-keyframes animateCloud {
   0% {
@@ -178,7 +191,7 @@ p {
   }
 }
 
-/* ANIMATIONS */
+/* animation for the clouds */
 
 .cloud-1 {
 -webkit-animation: animateCloud 70s linear infinite;
@@ -240,7 +253,7 @@ transform: scale(0.45);
   transform: scale(0.35);
   }
 
-/* OBJECTS */
+/* styling for the cloud */
 
 .cloud {
 background: #fff;
