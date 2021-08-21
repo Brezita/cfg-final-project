@@ -50,17 +50,17 @@
         </div>
         <div class="row mt-4">
           <div class="col">
-            {{ form.email_address.label(class="form-label") }}
-            {% if form.email_address.errors %}
-              {{ form.email_address(class="form-control is-invalid", placeholder="jane.doe@doe.com") }}  
+            {{ form.email.label(class="form-label") }}
+            {% if form.email.errors %}
+              {{ form.email(class="form-control is-invalid", placeholder="jane.doe@doe.com") }}  
               <div class="invalid-feedback">
-                {% for error in form.email_address.errors %}
+                {% for error in form.email.errors %}
                   <span>{{ error }}</span>
                 {% endfor %}
               </div>
             {% else %}
-              {{ form.email_address(class="form-control", placeholder="jane.doe@doe.com") }}  
-            {% endif%}
+              {{ form.email(class="form-control", placeholder="jane.doe@doe.com") }}  
+            {% endif %}
           </div>
           <div class="col">
             {{ form.username.label(class="form-label") }}
