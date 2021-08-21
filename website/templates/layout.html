@@ -33,13 +33,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link mr-4" href="/">HOME</a>
-            <a class="nav-item nav-link" href="/about">ABOUT</a>
+            <a class="nav-item nav-link mr-4" href="{{url_for('views.home')}}">HOME</a>
+            <a class="nav-item nav-link" href="{{url_for('views.about')}}">ABOUT</a>
           </div>
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
-            <a class="nav-item nav-link mr-4" href="/login">LOGIN</a>
-            <a class="nav-item nav-link" href="/register">REGISTER</a>
+            <a class="nav-item nav-link mr-4" href="{{url_for('auth.login')}}">LOGIN</a>
+            <a class="nav-item nav-link" href="{{url_for('auth.register')}}">REGISTER</a>
           </div>
         </div>
       </div>
