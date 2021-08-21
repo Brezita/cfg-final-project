@@ -46,6 +46,8 @@ Before running this code, you will need to have installed several Python package
 `pip install Flask-WTF`\
 `pip install requests`\
 `pip install flask_sqlalchemy`
+`pip install flask-bcrypt`
+`pip install flask-login`
 
 Additionally, you will need to create an api_utils.py file, which should live in the 'website' directory. This should contain the API keys needed to run the app - this will include the getgeoapi.com API, the openweathermap.com API, and Spotify's client ID and client secret. CFG instructors: please message one of the project team to be sent a full set of keys.
 
