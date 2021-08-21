@@ -30,7 +30,7 @@ def login():
         return redirect(url_for('views.home'))
       else:
         flash('Incorrect password, try again.', category='error')
-  else:
+    else:
       flash('Email does not exist.', category='error')
 
   return render_template("login.html", title='Login', form=login_form, boolean=True)
