@@ -38,6 +38,14 @@ def home():
 def about():
 	return render_template('about.html', title = 'About')
 
+# playlist page
+@views.route("/playlist")
+def playlist_page():
+  location = get_user_location()
+  weather = get_user_weather(location)
+  playlist = call_spotify(weather)
+  return render_template('playlist.html', title = 'Playlist', playlist=playlist)
+
 # Starts the Spotify authorisation process
 @views.route("/spotify_login")
 def spotify_login():
@@ -45,7 +53,7 @@ def spotify_login():
 	auth_url = get_spotify_user_auth(username)
 
 	if auth_url == 1:
-		return redirect("/")
+		return redirect("/playlist")
 	else:
 		return redirect(auth_url)
 
@@ -54,7 +62,7 @@ def spotify_login():
 def spotify_callback():
   code = request.args.get("code")
   get_spotify_token(code)
-  return redirect("/")
+  return redirect("/playlist")
 
 @views.route("/user_playlists")
 def user_playlists():
