@@ -6,7 +6,9 @@
   <h1>Your Curated Playlist</h1>
 {% endblock heading1%}
 
+<!-- main section for the page -->
 {% block container_box %}
+<!-- cloud animations -->
 <div class="background-wrap">
   <div class="cloud-1">
     <div class="cloud"></div>
@@ -29,6 +31,7 @@
 </div>
 <div class="container-wrapper">
   <div class="row">
+    <!-- current weather and location section -->
     <div class="col-sm">
       <h2>Current Location:</h2> 
       <br/>
@@ -38,6 +41,7 @@
       <br/>
       <p class="yellow-text">{{ playlist.Location.weather }}</p>
     </div>
+    <!-- diplays the playlists based on current weather -->
     <div class="col-sm">
       <h2>Your Playlist:</h2> 
       <br/>
@@ -46,6 +50,7 @@
         <br/>
       {% endfor %}
     </div>
+    <!-- spotify player -->
     <div class="col-sm">
       <iframe src="https://open.spotify.com/embed/track/{{playlist.tracks[0].spotifyid}}" width="280" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
