@@ -1,21 +1,21 @@
-from . import db
+# Database creation 
+from . import db, login_manager
 from flask_login import UserMixin
-from sqlalchemy.sql import func
 
-# setting database columns
-class Note(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    data = db.Column(db.String(10000))
-    # Records date and timezone information
-    date = db.Column(db.DateTime(timezone=True), default=func.now())
-    # Associates note with user
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+# finding the user by the user id
+@login_manager.user_loader
+def load_user(user_id):
+  return User.query.get(int(user_id))
 
-# stores user information
+# stores the user information into a table
 class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(150), unique=True)
-    password = db.Column(db.String(150))
-    first_name = db.Column(db.String(150))
-    # stores note id
-    notes = db.relationship('Note')
+  id = db.Column(db.Integer, primary_key=True)
+  first_name = db.Column(db.String(50), nullable=False)
+  last_name = db.Column(db.String(50), nullable=False)
+  username = db.Column(db.String(20), unique=True, nullable=False)
+  email = db.Column(db.String(150), unique=True, nullable=False)
+  password = db.Column(db.String(60), nullable=False)
+  
+  # magic method - this sets how the User object will display in the command line
+  def __repr__(self):
+    return f"User('{self.username}','{self.email}')"

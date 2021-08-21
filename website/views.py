@@ -1,13 +1,7 @@
 # stores the URL end points for the front-end websites
 # store standard routes - where the user can go to
-
-from flask import Blueprint, render_template, redirect, request, flash, jsonify
-from flask_login import login_required, current_user
+from flask import Blueprint, render_template, redirect, request
 from flask import session
-
-from .models import Note
-from . import db
-import json
 from .api_helpers import get_user_location, get_user_weather, get_spotify_user_auth, call_spotify, get_user_playlists, get_spotify_token
 
 # defining Blueprint
@@ -20,17 +14,6 @@ def home():
 	location = get_user_location()
 	weather = get_user_weather(location)
 	playlist = call_spotify(weather)
-	if request.method == 'POST':
-		note = request.form.get('note')
-		if len(note) < 1:
-			flash('Note is too short!', category='error')
-		else:
-			new_note = Note(data=note, user_id=current_user.id)
-			db.session.add(new_note)
-			db.session.commit()
-			flash('Note added!', category='success')
-		return render_template('index.html', user=current_user)
-
 	return render_template('index.html', playlist=playlist)
 
 # about page
@@ -61,21 +44,10 @@ def spotify_login():
 @views.route("/callback")
 def spotify_callback():
   code = request.args.get("code")
-  get_spotify_token(code)
+  get_spotify_token(session, code)
   return redirect("/playlist")
 
 @views.route("/user_playlists")
 def user_playlists():
 	return get_user_playlists(session)
 
-@views.route('/delete-note', methods=['POST'])
-def delete_note():
-	note = json.loads(request.data)
-	noteId = note['noteId']
-	note = Note.query.get(noteId)
-	if note:
-		if note.user_id == current_user.id:
-			db.session.delete(note)
-			db.session.commit()
-	
-	return jsonify({})

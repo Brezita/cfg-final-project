@@ -29,7 +29,11 @@
   </div>
   <div class="row pt-4">
     <div class="col">
-      <a href="/spotify_login"><button class="btn btn-lg btn-info">Login to Spotify</button></a>
+      {% if current_user.is_authenticated %}
+        <a href="{{url_for('views.playlist_page')}}"><button class="btn btn-lg btn-info">Go to playlist</button></a>
+      {% else %}
+        <a href="{{url_for('views.spotify_login')}}"><button class="btn btn-lg btn-info">Login to Spotify</button></a>
+      {% endif %}
     </div>
   </div>
 </div>
