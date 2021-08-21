@@ -2,6 +2,7 @@ import unittest
 
 import json
 
+from app import app
 from website.api_helpers import get_api_response, get_user_weather, get_spotify_user_auth, get_user_playlists
 from website.playlists import Playlist
 
@@ -24,7 +25,7 @@ class TestGetUserWeather(unittest.TestCase):
         super().__init__(methodName=methodName)
         self.possible_weather = ["Thunderstorm", "Drizzle", "Rain", "Snow", "Clear", "Clouds", "Mist", 
                             "Smoke", "Haze", "Dust", "Fog", "Sand", "Ash", "Squall", "Tornado"]
-
+ 
     def test_with_location(self):
         location = (51.3178, -0.5724)
         result = get_user_weather(location)
@@ -35,28 +36,16 @@ class TestGetUserWeather(unittest.TestCase):
         result = get_user_weather(input)
         self.assertEqual(result, "API error: weather API was not found.")
 
-# # This test is failing but I don't know why
-# class TestGetSpotifyUserAuth(unittest.TestCase):
-#     # Should return a URL
-#     # Also test without id/secret
-#     # This might just not work tbh
-#     def test_get_auth(self):
-#         username = "Brezita"
-#         result = get_spotify_user_auth(username)
-#         print(result)
-#         self.assertEqual(result[0:4], "https")
+class TestGetSpotifyUserAuth(unittest.TestCase):
+    def test_get_auth(self):
+        username = "Brezita"
+        result = get_spotify_user_auth(dict(), username)
+        self.assertEqual(result[0:5], "https")
 
-class GetUserPlaylistsTest(unittest.TestCase):
-    # Will need to pre-run get_spotify_user_auth
-    # Should return a list of playlists
-    pass
-
-class CallSpotifyTest(unittest.TestCase):
-    # Should return a Playlist object of Tracks based on the given weather
-    # Test without id/secret - this will simulate expired keys
-    # Test with no weather input ("API error: weather API was not found.")
-    # Test with several accepted weather types
-    pass
+    def test_auth_failure(self):
+        username = "Brezita"
+        result = get_spotify_user_auth(None, username)
+        self.assertEqual(result, 1)
 
 class PlaylistsTest(unittest.TestCase):
     def __init__(self, methodName: str) -> None:
