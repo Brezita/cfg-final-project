@@ -24,7 +24,11 @@ h2 {
 p {
   color: #000000;
   font-family: 'Raleway';
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+}
+
+.yellow-text {
+  color: #EDD55A;
 }
 
 .navbar {
@@ -82,10 +86,6 @@ p {
 
 .container-wrapper {
   margin-top: 70px;
-}
-
-.location-text {
-  color: #EDD55A;
 }
 
 .song-link:link, .song-link:visited {
