@@ -1,4 +1,47 @@
+<!-- takes the layout template -->
 {% extends "layout.html" %}
+
+<!-- Page Heading -->
 {% block heading1 %}
   <h1>About</h1>
-{% endblock heading1 %}
+{% endblock heading1%}
+
+<!-- main section for the page -->
+{% block container_box %}
+<div class="container-wrapper">
+  <div class="row">
+    <div class="col-sm border-box">
+      <h3 class="about-app-heading">Cloudtunes</h3>
+      <p class="about-text">Cloudtunes was born in 2021, with the idea of bringing some extra joy to your life, by selecting songs based on your current weather.</p>
+      <p class="about-text">Just because it's raining outside, doesn't mean you can't listen to some upbeat tunes!</p>
+      <br />
+      <p class="about-text">Have a little read about our Cloudtunes co-creators!</p>
+    </div>
+    <div class="col-sm ml-4 border-box">
+      <h3 class="about-heading">Jules</h3>
+      <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor sed nisi nulla molestias quibusdam asperiores minus exercitationem, rem quia, amet odio quam error delectus eius dolorem magni sequi optio doloribus!</p>
+    </div>
+    <div class="col-sm ml-4 border-box">
+      <h3 class="about-heading">Heather</h3>
+      <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor sed nisi nulla molestias quibusdam asperiores minus exercitationem, rem quia, amet odio quam error delectus eius dolorem magni sequi optio doloribus!</p>
+    </div>
+  </div>
+<div class="spacing"></div>
+  <div class="row">
+    <div class="col-sm border-box">
+      <h3 class="about-heading">Alex</h3>
+      <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor sed nisi nulla molestias quibusdam asperiores minus exercitationem, rem quia, amet odio quam error delectus eius dolorem magni sequi optio doloribus!</p>
+    </div>
+    <div class="col-sm ml-4 border-box">
+      <h3 class="about-heading">Johanna</h3>
+      <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor sed nisi nulla molestias quibusdam asperiores minus exercitationem, rem quia, amet odio quam error delectus eius dolorem magni sequi optio doloribus!</p>
+    </div>
+    <div class="col-sm ml-4 border-box">
+      <h3 class="about-heading">Kara</h3>
+      <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor sed nisi nulla molestias quibusdam asperiores minus exercitationem, rem quia, amet odio quam error delectus eius dolorem magni sequi optio doloribus!</p>
+    </div>
+  </div>
+</div>
+
+
+{% endblock container_box %}
