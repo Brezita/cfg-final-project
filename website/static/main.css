@@ -32,6 +32,29 @@ p {
   color: #EDD55A;
 }
 
+.about-text {
+  color: #000000;
+  font-family: 'Raleway';
+  font-size: 1.4rem;
+}
+
+/* specific heading */ 
+.about-heading {
+  color: #276DBF;
+  font-family: 'Pacifico';
+  font-size: 2.0rem;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.about-app-heading {
+  color: #27B6BF;
+  font-family: 'Pacifico';
+  font-size: 2.0rem;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
 /* navigation styling */
 .navbar {
   font-family: 'Playfair Display';
@@ -110,6 +133,17 @@ p {
 /* used in the index.html  */
 .container-wrapper {
   margin-top: 70px;
+}
+
+/* about page boxes */ 
+.border-box {
+  background-color: #DCDADA;
+  border-radius: 8px;
+  height: 250px;
+}
+
+.spacing {
+  margin-top: 50px;
 }
 
 /* main section to wrap the content-messsage-box and content-form-section area */
