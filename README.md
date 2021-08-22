@@ -85,4 +85,4 @@ jmdoherty1 - Johanna Doherty\
 heyjulesb - Jules Luu\
 kmh256 - Kara Howard
 
-<img src="https://media3.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif" width=600>
+<img src="https://media.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif" width=600>
