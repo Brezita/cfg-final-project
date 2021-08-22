@@ -74,11 +74,9 @@ flask run
 ```
 
 ## Using the App
-On opening the website, the app will automatically detect your location and provide you with a suggested playlist of songs relating to the current weather. 
+On opening the website, the app will automatically detect your location and the weather in your area. Clicking the "Login to Spotify" button will allow you to link the app with your Spotify account, and will provide you with a suggested playlist of songs relating to your weather. 
 
-You can also create an account with the app, which may grant additional features in the future - for example, the ability to save multiple locations, or to opt in to a "daily digest" summary of the weather in your area with a new playlist for you.
-
-We are also hoping to add the ability for Spotify users to assign their own playlists to certain weather conditions. At present, Spotify users are able to authorise their accounts with our app; however, this does not add any functionality.
+You can also create an account with the app, which may grant additional features in the future - for example, the ability to save multiple locations, or to opt in to a "daily digest" summary of the weather in your area with a new playlist for you. We are also hoping to add the ability for Spotify users to assign their own playlists to certain weather conditions.
 
 ## Contributers
 ASim-Null - Alexandra Simon-Lewis\
