@@ -139,6 +139,7 @@ p {
 .border-box {
   background-color: #DCDADA;
   border-radius: 8px;
+  margin: 10px;
 }
 
 .spacing {
