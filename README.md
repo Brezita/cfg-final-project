@@ -85,4 +85,4 @@ jmdoherty1 - Johanna Doherty\
 heyjulesb - Jules Luu\
 kmh256 - Kara Howard
 
-![A gif of a cat bopping to music](https://media3.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif)
+<img src="https://media3.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif" width=600>
