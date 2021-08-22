@@ -139,11 +139,10 @@ p {
 .border-box {
   background-color: #DCDADA;
   border-radius: 8px;
-  height: 250px;
 }
 
 .spacing {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 /* main section to wrap the content-messsage-box and content-form-section area */
