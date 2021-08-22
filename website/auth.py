@@ -1,6 +1,6 @@
 # authorisation routes
-from flask import Blueprint, render_template, url_for, flash, redirect, request
-from flask_login import login_user, login_required, logout_user, current_user
+from flask import Blueprint, render_template, url_for, flash, redirect
+from flask_login import login_user, logout_user, current_user
 from website import db, bcrypt
 from website.models import User
 from website.forms import RegistrationForm, LoginForm
@@ -33,7 +33,7 @@ def login():
 # registration route
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
-  # checks if the user is logged in, if it is direct to the homepage
+  # checks if the user is logged in, if it is direct the user to the homepage
   if current_user.is_authenticated:
     return redirect(url_for('views.home'))
   # creates an instance for the RegistrationForm class
