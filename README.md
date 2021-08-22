@@ -85,5 +85,4 @@ jmdoherty1 - Johanna Doherty\
 heyjulesb - Jules Luu\
 kmh256 - Kara Howard
 
-<img src="https://media2.giphy.com/media/jpbnoe3UIa8TU8LM13/giphy.gif" width=600>
-<iframe src="https://giphy.com/embed/jpbnoe3UIa8TU8LM13" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/emote-catjam-jpbnoe3UIa8TU8LM13">via GIPHY</a></p>
+<img src="https://media.giphy.com/media/jpbnoe3UIa8TU8LM13/giphy.gif" width=600>
